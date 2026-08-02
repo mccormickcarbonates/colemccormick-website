@@ -188,7 +188,6 @@ nav.tabs a.active {
 .page-header p.lede {
   font-size: 1.08rem;
   color: var(--text-muted);
-  max-width: 640px;
 }
 
 .status-pill {
