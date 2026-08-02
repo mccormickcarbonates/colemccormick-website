@@ -9,9 +9,9 @@
   --text: #23262b;
   --text-muted: #5c6167;
   --border: #ddd6c7;
-  --accent: #2f6f6b;
-  --accent-dark: #1e4b48;
-  --accent-soft: #e4eeed;
+  --accent: #3b6e4e;
+  --accent-dark: #1f4530;
+  --accent-soft: #e3ebe1;
   --warm: #a85a34;
   --warm-soft: #f3e7dd;
   --serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
@@ -46,8 +46,8 @@ h1, h2, h3, h4 {
 }
 
 h1 { font-size: 2.1rem; }
-h2 { font-size: 1.5rem; margin-top: 2.2em; }
-h3 { font-size: 1.15rem; }
+h2 { font-size: 1.5rem; margin-top: 2.2em; color: var(--accent-dark); }
+h3 { font-size: 1.15rem; color: var(--accent-dark); }
 
 p { margin: 0 0 1em; }
 
@@ -86,10 +86,9 @@ p { margin: 0 0 1em; }
   font-family: var(--serif);
   font-weight: 700;
   font-size: 1.05rem;
-  color: var(--text);
+  color: var(--accent-dark);
   white-space: nowrap;
 }
-.brand span { color: var(--accent-dark); }
 
 nav.tabs {
   display: flex;
