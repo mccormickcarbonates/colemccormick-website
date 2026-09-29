@@ -22,6 +22,12 @@
 </header>
 
 <div class="c3-hero">
+  <div class="hero-slides" id="hero-slides">
+    <div class="hero-slide active" style="background-image:url('assets/img/landing/campus-quad.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/img/landing/island-aerial.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/img/landing/padre-island.jpg')"></div>
+  </div>
+  <div class="hero-overlay"></div>
   <div class="c3-hero-inner">
     <div class="c3-mark">C&sup3;</div>
     <div class="c3-sub">Corpus Christi Carbonates</div>
@@ -35,6 +41,11 @@
       <a href="#research" class="btn btn-solid">Explore the Research</a>
       <a href="#join" class="btn btn-outline">Join the Group</a>
     </div>
+  </div>
+  <div class="hero-dots" id="hero-dots">
+    <button class="dot active" type="button" aria-label="Show campus quad photo"></button>
+    <button class="dot" type="button" aria-label="Show island aerial photo"></button>
+    <button class="dot" type="button" aria-label="Show North Padre Island photo"></button>
   </div>
   <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <path fill="#f7f8f8" d="M0,32 C240,64 480,0 720,16 C960,32 1200,64 1440,32 L1440,60 L0,60 Z"></path>
@@ -119,6 +130,38 @@
     <div class="fine">&copy; 2026 Cole A. McCormick. Site last updated September 2026.</div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var slides = document.querySelectorAll('#hero-slides .hero-slide');
+  var dots = document.querySelectorAll('#hero-dots .dot');
+  var current = 0;
+  var timer;
+
+  function show(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function start() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = setInterval(function () { show(current + 1); }, 5500);
+  }
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      clearInterval(timer);
+      show(i);
+      start();
+    });
+  });
+
+  start();
+})();
+</script>
 
 </body>
 </html>

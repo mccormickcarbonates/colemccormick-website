@@ -48,7 +48,7 @@ try {
     } catch {
       $res.StatusCode = 500
     } finally {
-      $res.OutputStream.Close()
+      try { $res.OutputStream.Close() } catch {}
     }
   }
 } finally {

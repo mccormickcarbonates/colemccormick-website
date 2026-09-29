@@ -344,6 +344,7 @@ ul.plain li { margin-bottom: 0.5em; }
 /* ---------- C3 landing hero ---------- */
 
 .c3-hero {
+  position: relative;
   background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
   color: #ffffff;
   margin: 0 0 2.4rem;
@@ -351,12 +352,59 @@ ul.plain li { margin-bottom: 0.5em; }
   overflow: hidden;
 }
 
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.hero-slide.active { opacity: 1; }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(10, 46, 87, 0.88) 0%, rgba(0, 103, 197, 0.72) 100%);
+}
+
 .c3-hero-inner {
+  position: relative;
+  z-index: 2;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 1.5rem 3.2rem;
+  padding: 0 1.5rem 2.2rem;
   text-align: center;
 }
+
+.hero-dots {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-bottom: 1.6rem;
+}
+
+.hero-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hero-dots .dot.active { background: var(--green); border-color: var(--green); }
 
 .c3-hero .c3-mark {
   font-family: var(--serif);
@@ -430,6 +478,8 @@ ul.plain li { margin-bottom: 0.5em; }
 .btn-outline-blue:hover { background: var(--accent-soft); }
 
 .wave-divider {
+  position: relative;
+  z-index: 2;
   display: block;
   width: 100%;
   height: 48px;
